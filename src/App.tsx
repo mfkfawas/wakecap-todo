@@ -1,27 +1,39 @@
 import { ThemeProvider } from '@/components/theme-provider';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from '@/components/mode.toggle';
-import axios from 'axios';
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query';
+import { axiosInstance } from '@/lib/utils';
 
-const fetchUsers = async () => {
-  const res = await axios.post('http://localhost:4002/tasks', {
-    text: 'jiberlekka a book',
-    completed: true,
-    deleted: false,
-    createdAt: '2025-02-03T14:00:00Z',
-  });
-  console.log('🚀 ~ fetchUsers ~ res:', res);
+const queryClient = new QueryClient();
+
+const fetchTasks = async () => {
+  const res = await axiosInstance.get('/tasks');
+  return res.data;
 };
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Button onClick={fetchUsers} className="bg-red-500">
-        Shadcn dark mode
-      </Button>
-      <ModeToggle />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <Children />
+        <ModeToggle />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
+
+const Children = () => {
+  const { data } = useQuery({
+    queryKey: ['tasks'],
+    queryFn: fetchTasks,
+  });
+  console.log('🚀 ~ Children ~ data:', data);
+
+  return <Button className="bg-red-500">Shadcn dark mode</Button>;
+};
 
 export default App;
