@@ -1,4 +1,4 @@
-import { TasksCounts } from '@/features/tasks/components';
+import { TasksCounts } from '@/features/tasks';
 import { Actions } from './actions';
 import { Logo } from './logo';
 

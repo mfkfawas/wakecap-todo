@@ -1,6 +1,6 @@
 import { CirclePlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ModeToggle } from '@/components/mode.toggle';
+import { ModeToggle } from '@/features/dark-mode';
 
 export const Actions = () => {
   return (

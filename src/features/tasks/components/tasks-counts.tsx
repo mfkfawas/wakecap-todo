@@ -24,7 +24,7 @@ export const TasksCounts = () => {
   return (
     <div className="flex gap-2">
       {counts.map(({ count, type }) => (
-        <TaskCountBadge count={count} type={type} />
+        <TaskCountBadge key={type} count={count} type={type} />
       ))}
     </div>
   );
