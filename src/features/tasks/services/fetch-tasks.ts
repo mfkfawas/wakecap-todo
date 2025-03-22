@@ -17,7 +17,7 @@ type FetchTasksResponse = {
 };
 
 export const fetchTasks = async ({
-  page = 1,
+  page,
 }: FetchTasksParams): Promise<FetchTasksResponse | undefined> => {
   try {
     const res = await axiosInstance.get(`/tasks?_page=${page}&_per_page=10`);

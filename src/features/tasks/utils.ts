@@ -7,3 +7,9 @@ export const handleApiError = (err: unknown) => {
     console.error(err);
   }
 };
+
+export const COUNT_ENTITY = {
+  DELETED: 'deleted',
+  COMPLETED: 'completed',
+  TOTAL: 'total',
+} as const;
