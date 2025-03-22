@@ -15,7 +15,7 @@ type TaskCountBadgeProps = {
 export const TaskCountBadge = ({ count, type }: TaskCountBadgeProps) => {
   return (
     <Badge
-      className={`${badgeColor[type]} rounded-full shadow-md shadow-gray-400 w-8 h-8 flex items-center justify-center text-center`}
+      className={`${badgeColor[type]} ${type === COUNT_ENTITY.TOTAL ? 'text-gray-800 dark:text-gray-200' : ''} font-semibold rounded-full shadow-md shadow-gray-400 dark:shadow-gray-900/50 w-8 h-8 flex items-center justify-center text-center`}
     >
       {count}
     </Badge>

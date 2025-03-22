@@ -4,7 +4,7 @@ import { Logo } from './logo';
 
 export const Header = () => {
   return (
-    <header className="flex h-16 p-2 border-b sticky top-0 z-20">
+    <header className="flex h-16 p-2 border-b">
       <div className="flex items-center justify-between w-full">
         <Logo />
         <div className="flex items-center gap-4">
