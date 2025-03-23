@@ -24,8 +24,8 @@ const NoTasksPlaceHolder = () => (
 
 const TasksList = ({ tasks }: { tasks: Task[] }) => (
   <ul>
-    {tasks.map(({ text }) => (
-      <TaskListItem text={text} />
+    {tasks.map(({ text, id }) => (
+      <TaskListItem key={id} text={text} />
     ))}
   </ul>
 );
