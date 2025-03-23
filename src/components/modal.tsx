@@ -8,10 +8,15 @@ import {
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 
+const ACTIONS = {
+  ADD: 'add',
+  UPDATE: 'update',
+} as const;
+
 type ModalProps = {
   open: boolean;
   onOpenChange: React.Dispatch<React.SetStateAction<boolean>>;
-  type: 'add' | 'update';
+  type: (typeof ACTIONS)[keyof typeof ACTIONS];
 };
 
 export const Modal = ({ open, onOpenChange, type }: ModalProps) => {
@@ -20,8 +25,8 @@ export const Modal = ({ open, onOpenChange, type }: ModalProps) => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            {type === 'add' && 'Add Todo'}
-            {type === 'update' && 'Update Todo'}
+            {type === ACTIONS.ADD && 'Add Todo'}
+            {type === ACTIONS.UPDATE && 'Update Todo'}
           </DialogTitle>
 
           {/* keeping this to remove console warning from shadcn */}
@@ -31,8 +36,8 @@ export const Modal = ({ open, onOpenChange, type }: ModalProps) => {
         <div className="flex justify-end gap-2">
           <Button variant="outline">Cancel</Button>
           <Button>
-            {type === 'add' && 'Add'}
-            {type === 'update' && 'Update'}
+            {type === ACTIONS.ADD && 'Add'}
+            {type === ACTIONS.UPDATE && 'Update'}
           </Button>
         </div>
       </DialogContent>
