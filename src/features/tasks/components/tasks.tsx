@@ -1,3 +1,5 @@
+import { Badge } from '@/components/ui/badge';
+import { usePage } from '@/context/pagination';
 import { useFetchTasks } from '@/features/tasks/hooks/use-fetch-tasks';
 import { Task } from '@/lib/types';
 
@@ -7,8 +9,9 @@ export const Tasks = () => {
   if (!tasks.length) return <NoTasksPlaceHolder />;
 
   return (
-    <div className=" bg-white dark:bg-zinc-900 shadow shadow-gray-400 dark:shadow-gray-900/50 h-[30rem] w-[25rem]">
+    <div className=" bg-white dark:bg-zinc-900 shadow shadow-gray-400 dark:shadow-gray-900/50 h-[30rem] w-[25rem] relative">
       <TasksList tasks={tasks} />
+      <PageNumber />
     </div>
   );
 };
@@ -32,3 +35,13 @@ const TaskListItem = ({ text }: { text: Task['text'] }) => (
     {text}
   </li>
 );
+
+const PageNumber = () => {
+  const { page } = usePage();
+
+  return (
+    <Badge className="absolute bottom-2 left-1/2 -translate-x-1/2">
+      Page: <span className="font-bold">{page}</span>
+    </Badge>
+  );
+};
