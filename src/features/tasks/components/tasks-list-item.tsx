@@ -62,7 +62,7 @@ export const TaskListItem = ({
     <>
       <li
         className={`flex items-center justify-between p-4 border-b last:border-none ${!deleted ? 'hover:bg-gray-50 hover:dark:bg-gray-950  cursor-pointer' : 'cursor-not-allowed'}`}
-        onClick={() => {
+        onDoubleClick={() => {
           if (deleted) return;
 
           setIsUpdateModalOpen(true);
