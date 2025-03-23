@@ -1,4 +1,5 @@
 import { Header } from '@/components/header';
+import { Pagination } from '@/components/pagination';
 import { Tasks } from '@/features/tasks';
 import { ContentLayout } from './content-layout';
 
@@ -14,7 +15,3 @@ export function AppLayout() {
     </div>
   );
 }
-
-const Pagination = () => {
-  return <div>pagination</div>;
-};
