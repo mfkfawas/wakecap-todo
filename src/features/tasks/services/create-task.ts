@@ -2,13 +2,11 @@ import { axiosInstance } from '@/lib/axios';
 import { Task } from '@/lib/types';
 import { handleApiError } from '@/features/tasks/utils';
 
-type CreateTaskParams = {
+export type CreateTaskParams = {
   text: string;
 };
 
-export const createTask = async ({
-  text,
-}: CreateTaskParams): Promise<Task> => {
+export const createTask = async ({ text }: CreateTaskParams): Promise<Task> => {
   try {
     const res = await axiosInstance.post(`/tasks`, {
       text,

@@ -4,9 +4,23 @@ import { Button } from '@/components/ui/button';
 import { Modal } from '@/components/modal';
 import { MODAL_ACTIONS } from '@/lib/utils';
 import { ModeToggle } from '@/features/dark-mode';
+import { useCreateTask } from '@/features/tasks/hooks';
 
 export const Actions = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newTask, setNewTask] = useState('');
+  const { isCreating, createTask } = useCreateTask();
+
+  const handleTaskCreate = () => {
+    createTask(
+      {
+        text: newTask,
+      },
+      {
+        onSuccess: () => setIsModalOpen(false),
+      }
+    );
+  };
 
   return (
     <>
@@ -22,9 +36,13 @@ export const Actions = () => {
       <ModeToggle />
 
       <Modal
+        type={MODAL_ACTIONS.ADD}
         open={isModalOpen}
         onOpenChange={setIsModalOpen}
-        type={MODAL_ACTIONS.ADD}
+        task={newTask}
+        onChangeTask={setNewTask}
+        onSubmit={handleTaskCreate}
+        disabled={isCreating}
       />
     </>
   );

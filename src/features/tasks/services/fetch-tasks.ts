@@ -23,7 +23,7 @@ export const fetchTasks = async ({
 }: FetchTasksParams): Promise<FetchTasksResponse | Task[]> => {
   try {
     const res = await axiosInstance.get(
-      `${noPagination ? '/tasks' : `/tasks?_page=${page}&_per_page=10`}`
+      `${noPagination ? '/tasks' : `/tasks?_page=${page}&_per_page=10&_sort=-createdAt`}`
     );
     return res.data;
   } catch (err: unknown) {
