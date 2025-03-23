@@ -1,7 +1,10 @@
 import { Badge } from '@/components/ui/badge';
+import { Checkbox } from '@/components/ui/checkbox';
 import { usePage } from '@/context/pagination';
 import { useFetchTasks } from '@/features/tasks/hooks/use-fetch-tasks';
 import { Task } from '@/lib/types';
+import { Trash2 } from 'lucide-react';
+import { useState } from 'react';
 
 export const Tasks = () => {
   const { tasks } = useFetchTasks();
@@ -9,7 +12,7 @@ export const Tasks = () => {
   if (!tasks.length) return <NoTasksPlaceHolder />;
 
   return (
-    <div className=" bg-white dark:bg-zinc-900 shadow shadow-gray-400 dark:shadow-gray-900/50 h-[30rem] w-[25rem] relative">
+    <div className=" bg-white dark:bg-zinc-900 shadow shadow-gray-400 dark:shadow-gray-900/50 h-[30rem] w-[25rem] relative overflow-auto">
       <TasksList tasks={tasks} />
       <PageNumber />
     </div>
@@ -24,17 +27,38 @@ const NoTasksPlaceHolder = () => (
 
 const TasksList = ({ tasks }: { tasks: Task[] }) => (
   <ul>
-    {tasks.map(({ text, id }) => (
-      <TaskListItem key={id} text={text} />
+    {tasks.map(({ text, id, completed }) => (
+      <TaskListItem key={id} text={text} completed={completed} />
     ))}
   </ul>
 );
 
-const TaskListItem = ({ text }: { text: Task['text'] }) => (
-  <li className="flex items-center justify-between p-2 border-b last:border-none">
-    {text}
-  </li>
-);
+type TaskListItemProps = {
+  text: Task['text'];
+  completed: Task['completed'];
+};
+
+const TaskListItem = ({ text, completed }: TaskListItemProps) => {
+  const [isChecked, setIsChecked] = useState(completed);
+
+  return (
+    <li className="flex items-center justify-between p-4 border-b last:border-none">
+      <Checkbox className="rounded-full h-6 w-6" checked={isChecked} />
+
+      <span
+        className={` flex gap-2
+        ${
+          isChecked
+            ? 'line-through text-gray-500 dark:text-gray-400'
+            : 'font-semibold'
+        }`}
+      >
+        {text}
+        <Trash2 strokeWidth={3} color="red" cursor="pointer" />
+      </span>
+    </li>
+  );
+};
 
 const PageNumber = () => {
   const { page } = usePage();
@@ -42,7 +66,7 @@ const PageNumber = () => {
   return (
     <Badge
       variant="outline"
-      className="absolute bottom-2 left-1/2 -translate-x-1/2"
+      className="sticky bottom-2 left-1/2 -translate-x-1/2"
     >
       Page: <span className="font-bold">{page}</span>
     </Badge>
