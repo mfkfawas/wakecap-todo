@@ -3,10 +3,11 @@ import { Task } from '@/lib/types';
 import { handleApiError } from '@/features/tasks/utils';
 
 type FetchTasksParams = {
-  page: number;
+  page?: number;
+  noPagination?: boolean;
 };
 
-type FetchTasksResponse = {
+export type FetchTasksResponse = {
   first: number;
   prev: number | null;
   next: number | null;
@@ -18,11 +19,15 @@ type FetchTasksResponse = {
 
 export const fetchTasks = async ({
   page,
-}: FetchTasksParams): Promise<FetchTasksResponse | undefined> => {
+  noPagination,
+}: FetchTasksParams): Promise<FetchTasksResponse | Task[]> => {
   try {
-    const res = await axiosInstance.get(`/tasks?_page=${page}&_per_page=10`);
+    const res = await axiosInstance.get(
+      `${noPagination ? '/tasks' : `/tasks?_page=${page}&_per_page=10`}`
+    );
     return res.data;
   } catch (err: unknown) {
     handleApiError(err);
+    throw new Error('Fetching tasks failed!');
   }
 };

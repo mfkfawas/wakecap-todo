@@ -8,7 +8,7 @@ type CreateTaskParams = {
 
 export const createTask = async ({
   text,
-}: CreateTaskParams): Promise<Task | undefined> => {
+}: CreateTaskParams): Promise<Task> => {
   try {
     const res = await axiosInstance.post(`/tasks`, {
       text,
@@ -19,5 +19,6 @@ export const createTask = async ({
     return res.data;
   } catch (err: unknown) {
     handleApiError(err);
+    throw new Error('Task creation failed!');
   }
 };

@@ -8,7 +8,7 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 import { usePage } from '@/context/pagination';
-import { useFetchTasks } from '@/features/tasks/hooks/use-fetch-tasks';
+import { useFetchTasks } from '@/features/tasks/hooks';
 
 // Constants for pagination logic
 const ELLIPSIS_THRESHOLD = 4; // When to show ellipsis

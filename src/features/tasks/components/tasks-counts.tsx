@@ -1,10 +1,10 @@
-import { useFetchTasks } from '@/features/tasks/hooks/use-fetch-tasks';
+import { useFetchTasksWithNoPagination } from '@/features/tasks/hooks';
 import { COUNT_ENTITY } from '@/features/tasks/utils';
 import { TaskCountBadge } from './task-count-badge';
 
 export const TasksCounts = () => {
   const { countOfCompletedTasks, countOfDeletedTasks, countOfTotalTasks } =
-    useFetchTasks();
+    useFetchTasksWithNoPagination();
 
   const counts = [
     {
