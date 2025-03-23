@@ -1,3 +1,3 @@
-import { TasksCounts } from './components';
+import { TasksCounts, Tasks } from './components';
 
-export { TasksCounts };
+export { TasksCounts, Tasks };
