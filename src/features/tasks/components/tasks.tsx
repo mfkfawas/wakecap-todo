@@ -40,7 +40,10 @@ const PageNumber = () => {
   const { page } = usePage();
 
   return (
-    <Badge className="absolute bottom-2 left-1/2 -translate-x-1/2">
+    <Badge
+      variant="outline"
+      className="absolute bottom-2 left-1/2 -translate-x-1/2"
+    >
       Page: <span className="font-bold">{page}</span>
     </Badge>
   );

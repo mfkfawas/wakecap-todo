@@ -1,10 +1,13 @@
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchTasks } from '@/features/tasks/services';
+import { usePage } from '@/context/pagination';
 
-export function useFetchTasks(page = 1) {
+export function useFetchTasks() {
+  const { page } = usePage();
+
   const { isLoading, data, error } = useQuery({
-    queryKey: ['tasks'],
+    queryKey: ['tasks', { page }],
     queryFn: () => fetchTasks({ page }),
   });
 
@@ -31,5 +34,6 @@ export function useFetchTasks(page = 1) {
     countOfTotalTasks: data?.items || 0,
     countOfDeletedTasks,
     countOfCompletedTasks,
+    pages: data?.pages || 0,
   };
 }

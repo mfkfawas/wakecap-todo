@@ -8,7 +8,7 @@ import {
 
 interface PageContextType {
   page: number;
-  setPage: (page: number) => void;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const PageContext = createContext<PageContextType | undefined>(undefined);
