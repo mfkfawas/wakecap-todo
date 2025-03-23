@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { z } from 'zod';
 import {
   Dialog,
   DialogContent,
@@ -9,6 +9,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { MODAL_ACTIONS } from '@/lib/utils';
+import { useState } from 'react';
 
 type ModalProps = {
   open: boolean;
@@ -20,6 +21,13 @@ type ModalProps = {
   disabled: boolean;
 };
 
+const taskSchema = z.object({
+  task: z
+    .string()
+    .min(3, 'Task must be at least 3 characters long')
+    .max(255, 'Task cannot exceed 255 characters'),
+});
+
 export const Modal = ({
   open,
   onOpenChange,
@@ -29,6 +37,20 @@ export const Modal = ({
   onSubmit,
   disabled,
 }: ModalProps) => {
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = () => {
+    const validation = taskSchema.safeParse({ task });
+
+    if (!validation.success) {
+      setError(validation.error.errors[0].message);
+      return;
+    }
+
+    setError(null);
+    onSubmit();
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
@@ -47,9 +69,16 @@ export const Modal = ({
             type === MODAL_ACTIONS.ADD ? 'Add your task' : 'Update your task'
           }
           value={task}
-          onChange={(e) => onChangeTask(e.target.value)}
+          onChange={(e) => {
+            setError(null);
+            onChangeTask(e.target.value);
+          }}
           disabled={disabled}
+          className={`w-full p-2 border rounded-md outline-none transition-all 
+            ${error ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-300 focus:ring-2 focus:ring-blue-200'}
+          `}
         />
+        <p className="text-red-500 text-sm h-2">{error}</p>
 
         <div className="flex justify-end gap-2">
           <Button
@@ -60,7 +89,7 @@ export const Modal = ({
             Cancel
           </Button>
 
-          <Button onClick={onSubmit} disabled={disabled}>
+          <Button onClick={handleSubmit} disabled={disabled || Boolean(error)}>
             {type === MODAL_ACTIONS.ADD && 'Add'}
             {type === MODAL_ACTIONS.UPDATE && 'Update'}
           </Button>
