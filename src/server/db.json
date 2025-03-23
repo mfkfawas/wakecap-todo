@@ -10,15 +10,15 @@
     {
       "text": "Complete the React project",
       "completed": false,
-      "deleted": false,
-      "createdAt": "2025-03-23T20:09:29.260Z",
+      "deleted": true,
+      "createdAt": "2025-03-23T21:22:47.104Z",
       "id": "2"
     },
     {
-      "text": "Read a book",
-      "completed": false,
+      "text": "Read a bloody book pls",
+      "completed": true,
       "deleted": false,
-      "createdAt": "2025-03-23T12:38:23.515Z",
+      "createdAt": "2025-03-23T22:19:32.464Z",
       "id": "3"
     },
     {
@@ -88,7 +88,7 @@
       "text": "Complete wakecap todo",
       "completed": false,
       "deleted": false,
-      "createdAt": "2025-03-23T12:51:12.889Z",
+      "createdAt": "2025-03-23T22:20:21.968Z",
       "id": "7dd3"
     }
   ]

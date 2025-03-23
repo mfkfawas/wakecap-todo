@@ -9,3 +9,8 @@ export const THEME = {
   LOCALSTORAGE_KEY: '__wake-cap-tod-theme',
   DEFAULT: 'system',
 } as const;
+
+export const MODAL_ACTIONS = {
+  ADD: 'add',
+  UPDATE: 'update',
+} as const;

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CirclePlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Modal } from '@/components/modal';
+import { MODAL_ACTIONS } from '@/lib/utils';
 import { ModeToggle } from '@/features/dark-mode';
 
 export const Actions = () => {
@@ -23,7 +24,7 @@ export const Actions = () => {
       <Modal
         open={isModalOpen}
         onOpenChange={setIsModalOpen}
-        type="add"
+        type={MODAL_ACTIONS.ADD}
       />
     </>
   );
