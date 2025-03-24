@@ -27,6 +27,10 @@ export default defineConfig({
       include: ['src/**/*.{ts,tsx}'],
       exclude: [
         'src/main.tsx',
+        // remove shadcn components from testing
+        'src/components/ui/dropdown-menu.tsx',
+        'src/components/theme-provider.tsx',
+        'src/features/dark-mode/mode.toggle.tsx',
         'src/vite-env.d.ts',
         '**/*.stories.tsx',
         '**/*.d.ts',
