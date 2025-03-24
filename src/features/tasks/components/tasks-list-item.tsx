@@ -88,7 +88,11 @@ export const TaskListItem = ({
           {text}
 
           {deleted ? (
-            <Ban strokeWidth={3} className="text-gray-400 cursor-not-allowed" />
+            <Ban
+              strokeWidth={3}
+              className="text-gray-400 cursor-not-allowed"
+              data-testid="ban-icon"
+            />
           ) : (
             <Trash2
               strokeWidth={3}
@@ -98,6 +102,7 @@ export const TaskListItem = ({
                   : 'text-red-500 cursor-pointer'
               }
               onClick={(e) => !isDeleting && handleDeleteTask(e)}
+              data-testid="delete-icon"
             />
           )}
         </span>
