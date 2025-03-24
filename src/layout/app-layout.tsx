@@ -5,7 +5,7 @@ import { ContentLayout } from './content-layout';
 
 export function AppLayout() {
   return (
-    <div className="max-h-screen">
+    <div className="max-h-screen" data-testid="app-layout">
       <Header />
 
       <ContentLayout>
