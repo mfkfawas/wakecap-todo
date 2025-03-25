@@ -9,6 +9,8 @@
 ![Tech Stack](https://img.shields.io/badge/Zod-3.24.2-3E67B1?style=flat&logo=zod)
 ![Tech Stack](https://img.shields.io/badge/Axios-1.8.4-5A29E4?style=flat&logo=axios)
 ![Tech Stack](https://img.shields.io/badge/React_Query-5.69.0-FF4154?style=flat&logo=reactquery)
+![Tech Stack](https://img.shields.io/badge/Vitest-3.0.9-6E9F18?style=flat&logo=vitest)
+![Tech Stack](https://img.shields.io/badge/Storybook-8.6.9-FF4785?style=flat&logo=storybook)
 
 A modern task management application built with cutting-edge technologies.
 
