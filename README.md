@@ -198,6 +198,14 @@ interface FetchTasksResponse {
   items: number; // Total items
   data: Task[]; // Task array
 }
+
+interface Task {
+  id: string; // Generated UUID
+  text: string; // Required content
+  completed: boolean; // Toggle state
+  deleted: boolean; // Soft-delete flag
+  createdAt: string; // ISO-8601 timestamp
+}
 ```
 
 #### Usage:
@@ -229,16 +237,24 @@ type UpdateTaskParams = {
   completed?: boolean; // Mark as completed
   deleted?: boolean; // Soft-delete flag
 };
+
+interface Task {
+  id: string; // Generated UUID
+  text: string; // Required content
+  completed: boolean; // Toggle state
+  deleted: boolean; // Soft-delete flag
+  createdAt: string; // ISO-8601 timestamp
+}
 ```
 
 #### Usage:
 
 ```typescript
 // Complete a task
-await updateTask({ id: '123', text: 'Original', completed: true });
+await updateTask({ id: '123', completed: true });
 
 // Soft-delete a task
-await updateTask({ id: '123', text: 'Original', deleted: true });
+await updateTask({ id: '123', deleted: true });
 
 // Update text only (preserves other fields)
 await updateTask({ id: '123', text: 'Updated text' });
