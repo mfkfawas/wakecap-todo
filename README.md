@@ -5,7 +5,6 @@
 ![Tech Stack](https://img.shields.io/badge/React-19.0.0-61DAFB?style=flat&logo=react)
 ![Tech Stack](https://img.shields.io/badge/TypeScript-5.7.2-3178C6?style=flat&logo=typescript)
 ![Tech Stack](https://img.shields.io/badge/Tailwind-4.0.15-06B6D4?style=flat&logo=tailwindcss)
-![Coverage](https://img.shields.io/badge/Coverage-92%25-brightgreen)
 
 A modern task management application built with cutting-edge technologies.
 
@@ -17,6 +16,7 @@ A modern task management application built with cutting-edge technologies.
 - Comprehensive test coverage (92%)
 - Storybook documentation
 - Optimized build with Vite
+- Feature based architecture for scalability.
 
 ## 🛠️ Technology Stack
 
@@ -29,7 +29,7 @@ A modern task management application built with cutting-edge technologies.
 - **Testing**:
   - Vitest (92% coverage)
   - Storybook 8.6
-- **State Management**: React Query 5.69
+- **Server State Management**: React Query 5.69
 
 ## 📦 Installation
 
@@ -59,12 +59,11 @@ JSON server on http://localhost:4002
 ```bash
 src/
 ├── features/ # Feature-based modules
-│ ├── dark-mode/ # Theme switching
-│ └── tasks/ # Core task functionality
-│ ├── components/ # Task-specific UI
-│ ├── hooks/ # Custom hooks
-│ ├── services/ # API communication
-│ └── utils.ts # Shared utilities
+│   └── tasks/ # Core task functionality
+│     ├── components/ # Task-specific UI
+│     ├── hooks/ # Custom hooks
+│     ├── services/ # API communication
+│     └── utils.ts # Shared utilities
 │
 ├── components/ # Shared UI components
 │ ├── ui/ # Shadcn/ui based primitives
@@ -78,7 +77,9 @@ src/
 
 ## Key Architectural Decisions:
 
-- Feature-Based Organization:
+### Feature-Based Organization:
+
+- Easily scalable to add new features.
 - Self-contained features with their own components, hooks, and services
 - Clear separation of concerns
 - Easy feature enablement/disabling
@@ -86,7 +87,7 @@ src/
 ## Testing Strategy:
 
 - 92% test coverage with Vitest
-- Storybook for our custom UI component documentation
+- Storybook for our custom UI component documentation(shadcn components are not added in storybook)
 - Mock service worker for API testing
 
 ## UI Composition:
@@ -119,6 +120,7 @@ bun run storybook
 ```bash
 bun run dev:full #Start both frontend and mock API
 bun run dev  #Start frontend only
+bun run server  #Start json server
 bun run build #Create production build
 bun run storybook #Launch Storybook UI
 bun run test #Run all tests
