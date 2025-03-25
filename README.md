@@ -20,7 +20,7 @@ A modern task management application built with cutting-edge technologies.
 - Dark/light mode toggle
 - Paginated task listing
 - Comprehensive test coverage (92%)
-- Storybook documentation
+- Storybook documentation(for our custom reusable components and not for shadcn components)
 - Optimized build with Vite
 - Feature based architecture for scalability.
 
