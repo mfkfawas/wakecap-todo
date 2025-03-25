@@ -143,30 +143,106 @@ bun run test #Run all tests
 bun run test:coverage #Show test coverage
 ```
 
-## 📡 API Documentation
+## API: Task Service
 
-| Component            | Details                                                                                                                                                      |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Task Type**        | `interface Task { id: string; text: string; completed: boolean; deleted: boolean; createdAt: string }`                                                       |
-| **createTask**       | `(params: { text: string }) => Promise<Task>`                                                                                                                |
-| **Params**           | `text`: Required task description (string)                                                                                                                   |
-| **Defaults**         | `completed: false`, `deleted: false`, `createdAt`: current ISO timestamp                                                                                     |
-| **Endpoint**         | `POST /tasks`                                                                                                                                                |
-| **Success Response** | `{ id: string, text: string, completed: boolean, deleted: boolean, createdAt: string }`                                                                      |
-| **Error Handling**   | Throws "Task creation failed!" + logs detailed error via `handleApiError`                                                                                    |
-| **Example**          | `ts<br>await createTask({ text: "Buy milk" });<br>// Returns: {id: "1", text: "Buy milk", completed: false, deleted: false, createdAt: "2025-03-25T10:00Z"}` |
+### `createTask(text: string): Promise<Task>`
 
-| **fetchTasks** | `(params?: { page?: number, noPagination?: boolean }) => Promise<FetchTasksResponse \| Task[]>` |
-| **Params** | `page`: Page number (default: 1), `noPagination`: Get all tasks when true |
-| **Paginated Response** | `ts<br>interface {<br>  first: number;<br>  prev: number \| null;<br>  next: number \| null;<br>  last: number;<br>  pages: number;<br>  items: number;<br>  data: Task[];<br>}` |
-| **Endpoint** | `GET /tasks?_page=1&_per_page=10` (or `/tasks` when noPagination=true) |
-| **Error Handling** | Throws "Fetching tasks failed!" + detailed logs |
+**Core Behavior**:
 
-| **updateTask** | `(params: { id: string, text: string, completed?: boolean, deleted?: boolean }) => Promise<Task>` |
-| **Params** | `id`: Task ID to update, `text`: New content, `completed/deleted`: Optional flags |
-| **Endpoint** | `PUT /tasks/:id` |
-| **Behavior** | Maintains original createdAt, allows partial updates |
-| **Example** | `ts<br>await updateTask({ id: "1", text: "Buy organic milk", completed: true });` |
+- Creates task with auto-generated `id` and timestamp
+- Defaults: `completed=false`, `deleted=false`
+- Validates non-empty text
+- Throws sanitized errors
+
+**Types**:
+
+```typescript
+interface Task {
+  id: string; // Generated UUID
+  text: string; // Required content
+  completed: boolean; // Toggle state
+  deleted: boolean; // Soft-delete flag
+  createdAt: string; // ISO-8601 timestamp
+}
+```
+
+#### Usage:
+
+```typescript
+await createTask('Ship feature');
+```
+
+### `fetchTasks(params: FetchTasksParams): Promise<FetchTasksResponse | Task[]>`
+
+**Core Behavior**:
+
+- Retrieves tasks with optional pagination
+- Automatically filters out deleted tasks
+- Returns pagination metadata when paginated
+- Throws sanitized errors
+
+**Types**:
+
+```typescript
+type FetchTasksParams = {
+  page?: number; // Default: 1
+  noPagination?: boolean; // Get all tasks when true
+};
+
+interface FetchTasksResponse {
+  first: number; // First page number
+  prev: number | null; // Previous page or null
+  next: number | null; // Next page or null
+  last: number; // Last page number
+  pages: number; // Total pages
+  items: number; // Total items
+  data: Task[]; // Task array
+}
+```
+
+#### Usage:
+
+```typescript
+// Paginated
+const { data } = await fetchTasks({ page: 1 });
+
+// All tasks
+const allTasks = await fetchTasks({ noPagination: true });
+```
+
+### `updateTask(params: UpdateTaskParams): Promise<Task>`
+
+**Core Behavior**:
+
+- Updates task by ID with partial updates
+- Handles task completion (`completed: true`)
+- Performs soft deletion (`deleted: true`)
+- Maintains original `createdAt` timestamp
+- Throws sanitized errors
+
+**Types**:
+
+```typescript
+type UpdateTaskParams = {
+  id: string; // Required task ID
+  text: string; // Updated content
+  completed?: boolean; // Mark as completed
+  deleted?: boolean; // Soft-delete flag
+};
+```
+
+#### Usage:
+
+```typescript
+// Complete a task
+await updateTask({ id: '123', text: 'Original', completed: true });
+
+// Soft-delete a task
+await updateTask({ id: '123', text: 'Original', deleted: true });
+
+// Update text only (preserves other fields)
+await updateTask({ id: '123', text: 'Updated text' });
+```
 
 ## 🌟 Why This Stands Out
 
@@ -185,3 +261,7 @@ bun run test:coverage #Show test coverage
 - Clean architecture decisions
 - Performance awareness
 - Attention to UX details
+
+```
+
+```
