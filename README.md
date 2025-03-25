@@ -82,27 +82,36 @@ src/
 └── server/ # Mock API database
 ```
 
-## Key Architectural Decisions:
+### Key Architectural Decisions:
 
-### Feature-Based Organization:
+1. **Feature-Based Organization**:
 
-- Easily scalable to add new features.
-- Self-contained features with their own components, hooks, and services
-- Clear separation of concerns
-- Easy feature enablement/disabling
+   - Easily scalable to add new features
+   - Self-contained features with their own components, hooks, and services
+   - Clear separation of concerns
+   - Easy feature enablement/disabling
 
-## Testing Strategy:
+2. **State Management**:
 
-- 92% test coverage with Vitest
-- Storybook for our custom UI component documentation(shadcn components are not added in storybook)
-- Mock service worker for API testing
+   - **UI State**: Single source of truth for pagination via `PageProvider` context
+   - **Server State**: Fully managed by React Query
+     - Automatic caching
+     - Background refetching
+     - Mutation handling
+   - **Theme State**: LocalStorage-persisted via `ThemeProvider`
 
-## UI Composition:
+3. **Testing Strategy**:
 
-- Built with Shadcn/ui primitives
-- Tailwind for utility-first styling
+   - 92% test coverage with Vitest
+   - Storybook for UI component documentation
+   - Mock service worker for API testing
 
-## 🧪 Testing & Quality
+4. **UI Composition**:
+   - Built with Shadcn/ui primitives
+   - Custom components only where needed (2 custom components)
+   - Tailwind for utility-first styling
+
+### 🧪 Testing & Quality
 
 Run unit tests:
 
@@ -133,6 +142,31 @@ bun run storybook #Launch Storybook UI
 bun run test #Run all tests
 bun run test:coverage #Show test coverage
 ```
+
+## 📡 API Documentation
+
+| Component            | Details                                                                                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Task Type**        | `interface Task { id: string; text: string; completed: boolean; deleted: boolean; createdAt: string }`                                                       |
+| **createTask**       | `(params: { text: string }) => Promise<Task>`                                                                                                                |
+| **Params**           | `text`: Required task description (string)                                                                                                                   |
+| **Defaults**         | `completed: false`, `deleted: false`, `createdAt`: current ISO timestamp                                                                                     |
+| **Endpoint**         | `POST /tasks`                                                                                                                                                |
+| **Success Response** | `{ id: string, text: string, completed: boolean, deleted: boolean, createdAt: string }`                                                                      |
+| **Error Handling**   | Throws "Task creation failed!" + logs detailed error via `handleApiError`                                                                                    |
+| **Example**          | `ts<br>await createTask({ text: "Buy milk" });<br>// Returns: {id: "1", text: "Buy milk", completed: false, deleted: false, createdAt: "2025-03-25T10:00Z"}` |
+
+| **fetchTasks** | `(params?: { page?: number, noPagination?: boolean }) => Promise<FetchTasksResponse \| Task[]>` |
+| **Params** | `page`: Page number (default: 1), `noPagination`: Get all tasks when true |
+| **Paginated Response** | `ts<br>interface {<br>  first: number;<br>  prev: number \| null;<br>  next: number \| null;<br>  last: number;<br>  pages: number;<br>  items: number;<br>  data: Task[];<br>}` |
+| **Endpoint** | `GET /tasks?_page=1&_per_page=10` (or `/tasks` when noPagination=true) |
+| **Error Handling** | Throws "Fetching tasks failed!" + detailed logs |
+
+| **updateTask** | `(params: { id: string, text: string, completed?: boolean, deleted?: boolean }) => Promise<Task>` |
+| **Params** | `id`: Task ID to update, `text`: New content, `completed/deleted`: Optional flags |
+| **Endpoint** | `PUT /tasks/:id` |
+| **Behavior** | Maintains original createdAt, allows partial updates |
+| **Example** | `ts<br>await updateTask({ id: "1", text: "Buy organic milk", completed: true });` |
 
 ## 🌟 Why This Stands Out
 
