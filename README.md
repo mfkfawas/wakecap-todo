@@ -5,6 +5,10 @@
 ![Tech Stack](https://img.shields.io/badge/React-19.0.0-61DAFB?style=flat&logo=react)
 ![Tech Stack](https://img.shields.io/badge/TypeScript-5.7.2-3178C6?style=flat&logo=typescript)
 ![Tech Stack](https://img.shields.io/badge/Tailwind-4.0.15-06B6D4?style=flat&logo=tailwindcss)
+![Tech Stack](https://img.shields.io/badge/shadcn/ui-0.0.0-000000?style=flat&logo=react)
+![Tech Stack](https://img.shields.io/badge/Zod-3.24.2-3E67B1?style=flat&logo=zod)
+![Tech Stack](https://img.shields.io/badge/Axios-1.8.4-5A29E4?style=flat&logo=axios)
+![Tech Stack](https://img.shields.io/badge/React_Query-5.69.0-FF4154?style=flat&logo=reactquery)
 
 A modern task management application built with cutting-edge technologies.
 
@@ -22,21 +26,22 @@ A modern task management application built with cutting-edge technologies.
 
 - **Runtime**: Bun v1.0
 - **Frontend**:
-  - React 19 (with hooks)
+  - React 19
   - TypeScript 5.7
   - Tailwind CSS 4.0
+  - shadcn/ui
+  - Zod 3.24 (Input validation)
 - **Build Tool**: Vite 6.2
+- **Server State Management**:
+  - React Query 5.69
+- **HTTP Client**: Axios 1.8
 - **Testing**:
   - Vitest (92% coverage)
   - Storybook 8.6
-- **Server State Management**: React Query 5.69
 
 ## 📦 Installation
 
-1. Ensure you have [Bun](https://bun.sh/) installed:
-   ```bash
-   curl -fsSL https://bun.sh/install | bash
-   ```
+1. Ensure you have [Bun](https://bun.sh/) installed.
 
 ### Install dependencies:
 
