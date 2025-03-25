@@ -1,8 +1,8 @@
 import { Badge } from '@/components/ui/badge';
 import { usePage } from '@/context/pagination';
 import { useFetchTasks } from '@/features/tasks/hooks';
-import { NoTasksPlaceHolder } from './no-tasks-placeholder';
-import { TasksList } from './tasks-list';
+import { NoTasksPlaceHolder } from '../no-task-placeholder';
+import { TasksList } from '../task-list';
 
 export const Tasks = () => {
   const { tasks } = useFetchTasks();

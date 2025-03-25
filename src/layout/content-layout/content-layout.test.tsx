@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { ContentLayout } from '../content-layout';
+import { ContentLayout } from '.';
 import { describe, expect, it } from 'vitest';
 
 describe('ContentLayout', () => {

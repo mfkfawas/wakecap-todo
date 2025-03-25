@@ -1,4 +1,4 @@
-import { createTask } from '../create-task';
+import { createTask } from '.';
 import { axiosInstance } from '@/lib/axios';
 import { vi, describe, it, expect } from 'vitest';
 import { handleApiError } from '@/features/tasks/utils';

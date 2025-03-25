@@ -59,7 +59,7 @@ describe('PageContext', () => {
     expect(testPage).toBe(2);
 
     act(() => {
-      testSetPage((prev) => prev + 1);
+      testSetPage((prev: number) => prev + 1);
     });
 
     expect(testPage).toBe(3);

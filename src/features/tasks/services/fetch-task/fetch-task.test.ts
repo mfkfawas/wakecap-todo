@@ -1,4 +1,4 @@
-import { fetchTask } from '../fetch-task';
+import { fetchTask } from '.';
 import { axiosInstance } from '@/lib/axios';
 import { vi, describe, it, expect } from 'vitest';
 import { handleApiError } from '@/features/tasks/utils';

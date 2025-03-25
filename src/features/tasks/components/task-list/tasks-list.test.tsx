@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { TasksList } from '../tasks-list';
+import { TasksList } from '.';
 import { Task } from '@/lib/types';
 
 // Mock the TaskListItem to avoid testing its internals

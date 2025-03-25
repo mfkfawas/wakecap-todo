@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { TaskListItem } from '../tasks-list-item';
+import { TaskListItem } from '.';
 import {
   useCompleteTask,
   useDeleteTask,

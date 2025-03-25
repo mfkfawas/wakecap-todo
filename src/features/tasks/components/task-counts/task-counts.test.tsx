@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import { TasksCounts } from '../tasks-counts';
+import { TasksCounts } from '.';
 import { useFetchTasksWithNoPagination } from '@/features/tasks/hooks';
 
 vi.mock('@/features/tasks/hooks', () => ({

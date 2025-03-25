@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { AppLayout } from '../app-layout';
+import { AppLayout } from '.';
 import { describe, expect, it, vi } from 'vitest';
 
 // Mock child components to isolate tests

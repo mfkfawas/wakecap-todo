@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { Actions } from '../actions';
+import { Actions } from '.';
 import { useCreateTask } from '@/features/tasks/hooks';
 import userEvent from '@testing-library/user-event';
 

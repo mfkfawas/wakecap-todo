@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/vitest';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { NoTasksPlaceHolder } from '../no-tasks-placeholder';
+import { NoTasksPlaceHolder } from '.';
 
 describe('NoTasksPlaceHolder', () => {
   it('renders the correct message', () => {

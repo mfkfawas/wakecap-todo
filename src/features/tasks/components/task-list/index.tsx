@@ -1,5 +1,5 @@
 import { Task } from '@/lib/types';
-import { TaskListItem } from './tasks-list-item';
+import { TaskListItem } from '../task-list-item';
 
 export const TasksList = ({ tasks }: { tasks: Task[] }) => (
   <ul>

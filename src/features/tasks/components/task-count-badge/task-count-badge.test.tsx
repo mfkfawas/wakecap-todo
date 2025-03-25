@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { TaskCountBadge } from '../task-count-badge';
+import { TaskCountBadge } from '.';
 import { COUNT_ENTITY } from '@/features/tasks/utils';
 
 describe('TaskCountBadge', () => {

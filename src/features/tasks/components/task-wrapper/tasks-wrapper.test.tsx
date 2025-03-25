@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Tasks } from '../tasks';
+import { Tasks } from '.';
 import { useFetchTasks } from '@/features/tasks/hooks';
 import { usePage } from '@/context/pagination';
 
@@ -72,7 +72,9 @@ describe('Tasks', () => {
     });
     render(<Tasks />, { wrapper: Wrapper });
 
-    expect(screen.getByText('No tasks placeholder')).toBeInTheDocument();
+    expect(
+      screen.getByText('Sorry, you have no todos, Please add new todo.')
+    ).toBeInTheDocument();
   });
 
   it('renders TasksList when tasks exist', () => {

@@ -1,5 +1,5 @@
 // src/features/tasks/services/update-task.test.ts
-import { updateTask } from '../update-task';
+import { updateTask } from '.';
 import { axiosInstance } from '@/lib/axios';
 import { vi, describe, it, expect } from 'vitest';
 import { handleApiError } from '@/features/tasks/utils';

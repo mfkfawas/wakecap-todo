@@ -1,5 +1,5 @@
 // src/features/tasks/services/fetch-tasks.test.ts
-import { fetchTasks } from '../fetch-tasks';
+import { fetchTasks } from '.';
 import { axiosInstance } from '@/lib/axios';
 import { vi, describe, it, expect } from 'vitest';
 import { handleApiError } from '@/features/tasks/utils';

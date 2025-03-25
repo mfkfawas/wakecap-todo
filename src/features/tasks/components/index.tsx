@@ -1,4 +1,4 @@
-import { TasksCounts } from './tasks-counts';
-import { Tasks } from './tasks';
+import { TasksCounts } from './task-counts';
+import { Tasks } from './task-wrapper';
 
 export { TasksCounts, Tasks };

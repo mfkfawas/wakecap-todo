@@ -1,7 +1,7 @@
 // src/components/header/logo.test.tsx
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { Logo } from '../logo';
+import { Logo } from '.';
 
 describe('Logo Component', () => {
   it('displays the correct logo text and icon', () => {
