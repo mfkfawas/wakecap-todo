@@ -1,109 +1,165 @@
 {
   "tasks": [
     {
-      "text": "Buy groceries",
+      "text": "Finish project documentation",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-25T01:24:08.035Z",
+      "id": "t1"
+    },
+    {
+      "text": "Call mom for birthday",
       "completed": true,
       "deleted": false,
-      "createdAt": "2025-03-25T01:04:15.340Z",
-      "id": "1"
+      "createdAt": "2025-03-24T14:30:00.000Z",
+      "id": "t2"
     },
     {
-      "text": "Walk the dog",
-      "completed": true,
-      "deleted": false,
-      "createdAt": "2025-03-25T00:53:36.587Z",
-      "id": "2"
-    },
-    {
-      "text": "Read a bloody book pls",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-03-24T21:49:51.723Z",
-      "id": "3"
-    },
-    {
-      "id": "11",
-      "text": "Buy groceries",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-03T12:00:00Z"
-    },
-    {
-      "text": "Complete the React project",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-03-23T12:43:11.769Z",
-      "id": "12"
-    },
-    {
-      "id": "13",
-      "text": "Read a book",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-03T14:00:00Z"
-    },
-    {
-      "id": "21",
-      "text": "Buy groceries",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-03T12:00:00Z"
-    },
-    {
-      "text": "Complete the React project",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-03-23T12:38:26.757Z",
-      "id": "22"
-    },
-    {
-      "id": "23",
-      "text": "Read a book",
-      "completed": false,
-      "deleted": false,
-      "createdAt": "2025-02-03T14:00:00Z"
-    },
-    {
-      "text": "Buy groceries on offeer",
+      "text": "Renew gym membership",
       "completed": false,
       "deleted": true,
-      "createdAt": "2025-03-24T22:30:55.345Z",
-      "id": "221"
+      "createdAt": "2025-03-23T11:45:33.456Z",
+      "id": "t3"
     },
     {
-      "text": "Complete the React project",
+      "text": "Schedule dentist appointment",
       "completed": false,
       "deleted": false,
-      "createdAt": "2025-03-23T12:38:29.624Z",
-      "id": "222"
+      "createdAt": "2025-03-25T10:00:15.789Z",
+      "id": "t4"
     },
     {
-      "text": "Read a book",
+      "text": "Buy new headphones",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-03-22T16:20:10.234Z",
+      "id": "t5"
+    },
+    {
+      "text": "Plan weekend trip",
       "completed": false,
       "deleted": false,
-      "createdAt": "2025-03-23T12:50:08.689Z",
-      "id": "223"
+      "createdAt": "2025-03-24T18:05:47.891Z",
+      "id": "t6"
     },
     {
-      "text": "Complete wakecap todo",
+      "text": "Learn new React hooks",
+      "completed": false,
+      "deleted": true,
+      "createdAt": "2025-03-21T13:15:30.567Z",
+      "id": "t7"
+    },
+    {
+      "text": "Organize workspace",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-03-23T09:30:45.678Z",
+      "id": "t8"
+    },
+    {
+      "text": "Write blog post",
       "completed": false,
       "deleted": false,
-      "createdAt": "2025-03-24T23:49:19.833Z",
-      "id": "7dd3"
+      "createdAt": "2025-03-25T01:24:58.233Z",
+      "id": "t9"
     },
     {
-      "id": "afef",
-      "text": "I am the new task",
-      "createdAt": "2025-03-23T22:31:48.019Z",
+      "text": "Update resume",
       "completed": false,
-      "deleted": false
+      "deleted": false,
+      "createdAt": "2025-03-24T15:20:33.456Z",
+      "id": "t10"
     },
     {
-      "id": "3774",
-      "text": "I am the newest",
-      "createdAt": "2025-03-23T22:35:42.772Z",
+      "text": "Research new laptop",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-03-22T12:10:22.789Z",
+      "id": "t11"
+    },
+    {
+      "text": "Clean refrigerator",
       "completed": false,
-      "deleted": false
+      "deleted": true,
+      "createdAt": "2025-03-21T17:35:44.123Z",
+      "id": "t12"
+    },
+    {
+      "text": "Pay electricity bill",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-25T11:30:55.678Z",
+      "id": "t13"
+    },
+    {
+      "text": "Meditate for 15 minutes",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-03-24T07:45:33.891Z",
+      "id": "t14"
+    },
+    {
+      "text": "Cancel unused subscriptions",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-23T14:25:11.234Z",
+      "id": "t15"
+    },
+    {
+      "text": "Backup important files",
+      "completed": false,
+      "deleted": true,
+      "createdAt": "2025-03-22T19:15:22.567Z",
+      "id": "t16"
+    },
+    {
+      "text": "Call insurance company",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-03-21T10:50:44.789Z",
+      "id": "t17"
+    },
+    {
+      "text": "Water the plants",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-25T07:20:33.123Z",
+      "id": "t18"
+    },
+    {
+      "text": "Review investment portfolio",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-24T16:40:55.456Z",
+      "id": "t19"
+    },
+    {
+      "text": "Try new recipe",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-03-23T12:15:11.789Z",
+      "id": "t20"
+    },
+    {
+      "text": "Organize digital photos",
+      "completed": false,
+      "deleted": true,
+      "createdAt": "2025-03-22T08:30:22.123Z",
+      "id": "t21"
+    },
+    {
+      "text": "Plan birthday surprise",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-25T14:10:44.456Z",
+      "id": "t22"
+    },
+    {
+      "text": "Update software",
+      "completed": true,
+      "deleted": false,
+      "createdAt": "2025-03-24T09:25:33.789Z",
+      "id": "t23"
     }
   ]
 }
