@@ -11,13 +11,13 @@
       "text": "Call mom for birthday",
       "completed": true,
       "deleted": false,
-      "createdAt": "2025-03-24T14:30:00.000Z",
+      "createdAt": "2025-03-25T08:51:56.441Z",
       "id": "t2"
     },
     {
       "text": "Renew gym membership",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "createdAt": "2025-03-23T11:45:33.456Z",
       "id": "t3"
     },
@@ -45,7 +45,7 @@
     {
       "text": "Learn new React hooks",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "createdAt": "2025-03-21T13:15:30.567Z",
       "id": "t7"
     },
@@ -67,7 +67,7 @@
       "text": "Update resume",
       "completed": false,
       "deleted": false,
-      "createdAt": "2025-03-24T15:20:33.456Z",
+      "createdAt": "2025-03-25T08:51:59.198Z",
       "id": "t10"
     },
     {
@@ -80,7 +80,7 @@
     {
       "text": "Clean refrigerator",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "createdAt": "2025-03-21T17:35:44.123Z",
       "id": "t12"
     },
@@ -108,7 +108,7 @@
     {
       "text": "Backup important files",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "createdAt": "2025-03-22T19:15:22.567Z",
       "id": "t16"
     },
@@ -143,7 +143,7 @@
     {
       "text": "Organize digital photos",
       "completed": false,
-      "deleted": true,
+      "deleted": false,
       "createdAt": "2025-03-22T08:30:22.123Z",
       "id": "t21"
     },
@@ -160,6 +160,41 @@
       "deleted": false,
       "createdAt": "2025-03-24T09:25:33.789Z",
       "id": "t23"
+    },
+    {
+      "text": "Buy new house",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-24T09:25:33.789Z",
+      "id": "t24"
+    },
+    {
+      "text": "Buy new car",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-24T09:25:33.789Z",
+      "id": "t25"
+    },
+    {
+      "text": "Visit family",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-24T09:25:33.789Z",
+      "id": "t26"
+    },
+    {
+      "text": "Visit Madina",
+      "completed": false,
+      "deleted": false,
+      "createdAt": "2025-03-24T09:25:33.789Z",
+      "id": "t27"
+    },
+    {
+      "id": "169a",
+      "text": "Visit the sick",
+      "createdAt": "2025-03-25T08:57:16.027Z",
+      "completed": false,
+      "deleted": false
     }
   ]
 }
