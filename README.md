@@ -49,8 +49,9 @@ A modern task management application built with cutting-edge technologies.
 
 ```bash
 bun install
-Run the development server:
 ```
+
+#### Run the development server:
 
 ```bash
 bun run dev:full
